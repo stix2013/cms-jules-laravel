@@ -19,8 +19,8 @@
             </style>
         @endif
     </head>
-    <body class="bg-[#FDFDFC] dark:bg-[#0a0a0a] text-[#1b1b18] flex p-6 lg:p-8 items-center lg:justify-center min-h-screen flex-col">
-        <header class="w-full lg:max-w-4xl max-w-[335px] text-sm mb-6 not-has-[nav]:hidden dark:text-[#FDFDFC]">
+    <body class="bg-[#FFFFFF] dark:bg-[#0a0a0a] text-[#3c3c3a] flex p-6 lg:p-8 items-center lg:justify-center min-h-screen flex-col">
+        <header class="w-full lg:max-w-4xl max-w-[335px] text-sm mb-6 not-has-[nav]:hidden dark:text-[#FFFFFF]">
             <div class="flex items-center justify-between mb-4">
                 <h1 class="text-2xl font-bold">Welcome to Your Application</h1>
                 <a href="{{ url('/login') }}" class="text-blue-500 hover:underline">Login</a>
