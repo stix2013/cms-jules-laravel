@@ -14,4 +14,12 @@ class HomeController extends Controller
     {
         return Inertia::render('Home');
     }
+
+    /**
+     * Display the about page.
+     */
+    public function about()
+    {
+        return Inertia::render('About');
+    }
 }
