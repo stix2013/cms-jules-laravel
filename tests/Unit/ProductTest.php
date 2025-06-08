@@ -3,6 +3,7 @@
 namespace Tests\Unit;
 
 use App\Models\Product;
+use PHPUnit\Framework\Attributes\Test;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
@@ -10,7 +11,7 @@ class ProductTest extends TestCase
 {
     use RefreshDatabase;
 
-    /** @test */
+    #[Test]
     public function test_can_create_product(): void
     {
         $productData = Product::factory()->make()->toArray();
@@ -21,7 +22,7 @@ class ProductTest extends TestCase
         $this->assertInstanceOf(Product::class, $product);
     }
 
-    /** @test */
+    #[Test]
     public function test_can_read_product(): void
     {
         $product = Product::factory()->create();
@@ -32,7 +33,7 @@ class ProductTest extends TestCase
         $this->assertEquals($product->name, $foundProduct->name);
     }
 
-    /** @test */
+    #[Test]
     public function test_can_update_product(): void
     {
         $product = Product::factory()->create();
@@ -46,7 +47,7 @@ class ProductTest extends TestCase
         $this->assertDatabaseHas('products', array_merge(['id' => $product->id], $updatedData));
     }
 
-    /** @test */
+    #[Test]
     public function test_can_delete_product(): void
     {
         $product = Product::factory()->create();
@@ -56,7 +57,7 @@ class ProductTest extends TestCase
         $this->assertDatabaseMissing('products', ['id' => $product->id]);
     }
 
-    /** @test */
+    #[Test]
     public function test_can_disable_product(): void
     {
         $product = Product::factory()->create();
