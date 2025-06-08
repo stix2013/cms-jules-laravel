@@ -2,12 +2,13 @@
 
 namespace Tests\Feature;
 
+use Inertia\Testing\AssertableInertia as Assert;
 use Tests\TestCase;
 
 class AboutPageTest extends TestCase
 {
     /**
-     * Test that the about page returns a successful response and correct content.
+     * Test that the about page returns a successful Inertia response and correct component.
      *
      * @return void
      */
@@ -16,6 +17,9 @@ class AboutPageTest extends TestCase
         $response = $this->get('/about');
 
         $response->assertStatus(200);
-        $response->assertSee("This is the About page.");
+        $response->assertInertia(fn (Assert $page) => $page
+            ->component('About')
+            ->where('title', 'About Us') // Asserting 'title' prop has the value 'About Us'
+        );
     }
 }

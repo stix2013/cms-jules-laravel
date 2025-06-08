@@ -3,16 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class AboutController extends Controller
 {
     /**
      * Display the about page.
      *
-     * @return \Illuminate\View\View
+     * @return \Inertia\Response
      */
-    public function index()
+    public function __invoke()
     {
-        return view('about');
+        return Inertia::render('About', ['title' => 'About Us']);
     }
 }
