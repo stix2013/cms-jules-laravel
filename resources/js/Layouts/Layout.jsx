@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from '@inertiajs/react';
 
-export default function PersistentLayout({ children }) {
+export default function Layout({ children }) {
   return (
     <div id="persistent-layout" className="min-h-screen bg-gray-100">
       <header className="bg-white shadow">

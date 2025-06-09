@@ -1,8 +1,7 @@
-import React from 'react';
 import { Head } from '@inertiajs/react';
-import PersistentLayout from '../Layouts/PersistentLayout';
+import Layout from '../Layouts/Layout';
 
-export default function Home() {
+const Home = () => {
   return (
     <>
       <Head title="Home" />
@@ -12,4 +11,6 @@ export default function Home() {
   );
 }
 
-Home.layout = PersistentLayout;
+Home.layout = page => <Layout children={page} title="Home" />; // Use PersistentLayout if you want the persistent layout
+
+export default Home;

@@ -6,7 +6,7 @@ import {
     getCoreRowModel,
     useReactTable,
 } from '@tanstack/react-table';
-import PersistentLayout from '../Layouts/PersistentLayout';
+import Layout from '../Layouts/Layout';
 
 // Helper to generate mock IDs if products don't have them (since we use make())
 const addIdsToProducts = (products) => {
@@ -16,7 +16,7 @@ const addIdsToProducts = (products) => {
     }));
 };
 
-export default function Products({ products: initialProducts }) {
+const Products = ({ products: initialProducts }) => {
     // Add IDs to products if they are missing
     const products = useMemo(() => addIdsToProducts(initialProducts), [initialProducts]);
 
@@ -50,48 +50,45 @@ export default function Products({ products: initialProducts }) {
     return (
         <>
             <Head title="Products" />
-            {/* Page Title */}
-            <h1 className="text-3xl font-bold mb-6 text-gray-700">Products List</h1> {/* Adjusted size, margin, color */}
-
-            {/* Table Container with Shadow and Border Radius for a card-like effect */}
-                <div className="overflow-x-auto bg-white shadow-lg rounded-lg"> {/* Added shadow-lg */}
-                    <table className="min-w-full">
-                        {/* Table Head */}
-                        <thead className="bg-gray-200 text-gray-600 uppercase text-sm leading-normal"> {/* Adjusted styling */}
-                            {table.getHeaderGroups().map(headerGroup => (
-                                <tr key={headerGroup.id}>
-                                    {headerGroup.headers.map(header => (
-                                        <th key={header.id} className="py-3 px-6 text-left"> {/* Adjusted padding */}
-                                            {header.isPlaceholder
-                                                ? null
-                                                : flexRender(
-                                                    header.column.columnDef.header,
-                                                    header.getContext()
-                                                )}
-                                        </th>
-                                    ))}
-                                </tr>
-                            ))}
-                        </thead>
-                        {/* Table Body */}
-                        <tbody className="text-gray-700 text-sm font-light"> {/* Adjusted styling */}
-                            {table.getRowModel().rows.map(row => (
-                                <tr key={row.id} className="border-b border-gray-200 hover:bg-gray-100">
-                                    {row.getVisibleCells().map(cell => (
-                                        <td key={cell.id} className="py-3 px-6"> {/* Adjusted padding */}
-                                            {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                                        </td>
-                                    ))}
-                                </tr>
-                            ))}
-                        </tbody>
-                    </table>
-                </div>
-                {products.length === 0 && (
-                    <p className="mt-6 text-center text-gray-500">No products found.</p> // Adjusted margin and alignment
-                )}
+            <h1 className="text-3xl font-bold mb-6 text-gray-700">Products List</h1>
+            <div className="overflow-x-auto bg-white shadow-lg rounded-lg">
+                <table className="min-w-full">
+                    <thead className="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
+                        {table.getHeaderGroups().map(headerGroup => (
+                            <tr key={headerGroup.id}>
+                                {headerGroup.headers.map(header => (
+                                    <th key={header.id} className="py-3 px-6 text-left">
+                                        {header.isPlaceholder
+                                            ? null
+                                            : flexRender(
+                                                header.column.columnDef.header,
+                                                header.getContext()
+                                            )}
+                                    </th>
+                                ))}
+                            </tr>
+                        ))}
+                    </thead>
+                    <tbody className="text-gray-700 text-sm font-light">
+                        {table.getRowModel().rows.map(row => (
+                            <tr key={row.id} className="border-b border-gray-200 hover:bg-gray-100">
+                                {row.getVisibleCells().map(cell => (
+                                    <td key={cell.id} className="py-3 px-6">
+                                        {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                                    </td>
+                                ))}
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
+            {products.length === 0 && (
+                <p className="mt-6 text-center text-gray-500">No products found.</p> // Adjusted margin and alignment
+            )}
         </>
     );
 }
 
-Products.layout = PersistentLayout;
+Products.layout = page => <Layout children={page} title="Products" />; // Use PersistentLayout if you want the persistent layout
+
+export default Products;

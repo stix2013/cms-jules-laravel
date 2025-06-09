@@ -1,8 +1,7 @@
-import React from 'react';
 import { Head } from '@inertiajs/react';
-import PersistentLayout from '../Layouts/PersistentLayout';
+import Layout from '../Layouts/Layout';
 
-export default function About() {
+const About = () => {
     return (
         <>
             <Head title="About Us" />
@@ -14,4 +13,6 @@ export default function About() {
     );
 }
 
-About.layout = PersistentLayout;
+About.layout = page => <Layout children={page} title="About Us" />;  // Use PersistentLayout if you want the persistent layout
+
+export default About;
