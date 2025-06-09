@@ -1,4 +1,5 @@
 import { Link } from '@inertiajs/react';
+import Footer from '@/Components/Footer';
 
 export default function Layout({ children }) {
   return (
@@ -21,9 +22,7 @@ export default function Layout({ children }) {
         {children}
       </main>
 
-      <footer className="bg-gray-200 text-center p-4 mt-auto">
-        <p>&copy; 2024 My Inertia App. All rights reserved.</p>
-      </footer>
+      <Footer />
     </div>
   );
 }
