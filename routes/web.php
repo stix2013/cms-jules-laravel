@@ -10,3 +10,5 @@ Route::get('/', [HomeController::class, 'index']);
 Route::get('/about', AboutController::class)->name('about');
 
 Route::get('/products', [ProductController::class, 'index'])->name('products.index');
+
+Route::post('/ssr/health-check', fn () => response()->ok());

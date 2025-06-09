@@ -17,6 +17,13 @@ class HandleInertiaRequests extends Middleware
     protected $rootView = 'app';
 
     /**
+     * The SSR bundle path.
+     *
+     * @var string
+     */
+    protected $ssrBundle = 'bootstrap/ssr/ssr.js';
+
+    /**
      * Determines the current asset version.
      *
      * @see https://inertiajs.com/asset-versioning

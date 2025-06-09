@@ -7,9 +7,14 @@ export default defineConfig({
     plugins: [
         laravel({
             input: ['resources/css/app.css', 'resources/js/app.jsx'],
+            ssr: 'resources/js/ssr.jsx',
+            ssrOutputDirectory: 'bootstrap/ssr',
             refresh: true,
         }),
         tailwindcss(),
         react(),
     ],
+    build: {
+        ssr: true,
+    },
 });
