@@ -6,6 +6,7 @@ import {
     getCoreRowModel,
     useReactTable,
 } from '@tanstack/react-table';
+import PersistentLayout from '../Layouts/PersistentLayout';
 
 // Helper to generate mock IDs if products don't have them (since we use make())
 const addIdsToProducts = (products) => {
@@ -49,11 +50,10 @@ export default function Products({ products: initialProducts }) {
     return (
         <>
             <Head title="Products" />
-            {/* Container and Page Title */}
-            <div className="container mx-auto p-6 bg-gray-50 min-h-screen"> {/* Added bg-gray-50 and min-h-screen */}
-                <h1 className="text-3xl font-bold mb-6 text-gray-700">Products List</h1> {/* Adjusted size, margin, color */}
+            {/* Page Title */}
+            <h1 className="text-3xl font-bold mb-6 text-gray-700">Products List</h1> {/* Adjusted size, margin, color */}
 
-                {/* Table Container with Shadow and Border Radius for a card-like effect */}
+            {/* Table Container with Shadow and Border Radius for a card-like effect */}
                 <div className="overflow-x-auto bg-white shadow-lg rounded-lg"> {/* Added shadow-lg */}
                     <table className="min-w-full">
                         {/* Table Head */}
@@ -90,7 +90,8 @@ export default function Products({ products: initialProducts }) {
                 {products.length === 0 && (
                     <p className="mt-6 text-center text-gray-500">No products found.</p> // Adjusted margin and alignment
                 )}
-            </div>
         </>
     );
 }
+
+Products.layout = PersistentLayout;
