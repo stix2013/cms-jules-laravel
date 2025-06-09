@@ -2,12 +2,13 @@
 
 namespace Tests\Feature;
 
+use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 use Inertia\Testing\AssertableInertia as Assert;
 
 class PersistentLayoutTest extends TestCase
 {
-    /** @test */
+    #[Test]
     public function home_page_returns_success_and_correct_inertia_component()
     {
         $this->get('/')
@@ -15,7 +16,7 @@ class PersistentLayoutTest extends TestCase
             ->assertInertia(fn (Assert $page) => $page->component('Home'));
     }
 
-    /** @test */
+    #[Test]
     public function about_page_returns_success_and_correct_inertia_component()
     {
         $this->get('/about')
@@ -23,7 +24,7 @@ class PersistentLayoutTest extends TestCase
             ->assertInertia(fn (Assert $page) => $page->component('About'));
     }
 
-    /** @test */
+    #[Test]
     public function products_page_returns_success_and_correct_inertia_component()
     {
         $this->get('/products')
