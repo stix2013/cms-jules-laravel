@@ -1,0 +1,22 @@
+{
+  "node_modules/laravel-vite-plugin/inertia-helpers/index.js": [],
+  "resources/js/Components/Footer.jsx": [
+    "/build/assets/Layout-BPNmPupJ.js"
+  ],
+  "resources/js/Components/Navbar.jsx": [
+    "/build/assets/Layout-BPNmPupJ.js"
+  ],
+  "resources/js/Layouts/Layout.jsx": [
+    "/build/assets/Layout-BPNmPupJ.js"
+  ],
+  "resources/js/Pages/About.jsx": [
+    "/build/assets/About-D3wsQPkK.js"
+  ],
+  "resources/js/Pages/Home.jsx": [
+    "/build/assets/Home-BiuZeZcC.js"
+  ],
+  "resources/js/Pages/Products.jsx": [
+    "/build/assets/Products-DrME0byL.js"
+  ],
+  "resources/js/ssr.jsx": []
+}
