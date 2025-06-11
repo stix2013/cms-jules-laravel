@@ -16,5 +16,17 @@ class Product extends Model
         'long_description',
         'price',
         'disabled_at',
+        'images',
+        'specifications',
+        'variations',
+        'stock_status',
+        'sku',
+    ];
+
+    protected $casts = [
+        'images' => 'array',
+        'specifications' => 'array',
+        'variations' => 'array',
+        'price' => 'decimal:2',
     ];
 }

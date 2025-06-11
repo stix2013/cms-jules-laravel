@@ -17,6 +17,11 @@ return new class extends Migration
             $table->text('short_description');
             $table->longText('long_description');
             $table->decimal('price', 8, 2);
+            $table->json('images')->nullable();
+            $table->json('specifications')->nullable();
+            $table->json('variations')->nullable();
+            $table->string('stock_status')->default('in_stock');
+            $table->string('sku')->nullable()->unique();
             $table->timestamp('disabled_at')->nullable();
             $table->timestamps();
         });

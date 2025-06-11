@@ -19,4 +19,14 @@ class ProductController extends Controller
             'products' => $products,
         ]);
     }
+
+    /**
+     * Display the specified resource.
+     */
+    public function show(Product $product)
+    {
+        return Inertia::render('ProductDetail', [
+            'product' => $product,
+        ]);
+    }
 }

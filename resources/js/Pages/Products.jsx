@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { Head } from '@inertiajs/react';
+import { Head, Link } from '@inertiajs/react';
 import {
     createColumnHelper,
     flexRender,
@@ -29,7 +29,11 @@ const Products = ({ products: initialProducts }) => {
         }),
         columnHelper.accessor('name', {
             header: () => 'Name',
-            cell: info => info.getValue(),
+            cell: info => (
+                <Link href={`/products/${info.row.original.id}`} className="text-blue-600 hover:text-blue-800 hover:underline">
+                    {info.getValue()}
+                </Link>
+            ),
         }),
         columnHelper.accessor('short_description', {
             header: () => 'Description',
